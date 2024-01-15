@@ -83,10 +83,14 @@ class RolUsuario(models.Model):
 class Usuario(models.Model):
     usr_id = models.AutoField(primary_key=True)
     usr_nombreusuario = models.CharField(max_length=100, blank=True, null=True)
-    usr_contrasenaencriptada = models.CharField(max_length=255, blank=True, null=True)
+    usr_apellidousuario = models.CharField(max_length=100, blank=True, null=True)
+    
+    #usr_contrasenaencriptada = models.CharField(max_length=255, blank=True, null=True)
+    
+    usr_dni = models.CharField(max_length=8, blank=True, null=True)
+    usr_celular = models.CharField(max_length=20, blank=True, null=True)
     rolusuario = models.ForeignKey(RolUsuario, models.DO_NOTHING, blank=True, null=True)
     usr_estadoregistro = models.CharField(max_length=1, blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'usuario'
